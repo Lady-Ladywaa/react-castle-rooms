@@ -28,16 +28,24 @@ export default function App() {
 
   return (
     // card ห้อง secret room
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-300">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-slate-900">
 
       {/* ข้อความจากกล่อง input */}
       <p className="text-purple-800">
-        Message to Cooper:{""}
+        Message for Secret Room:{""}
         <span>{question ? `🛰️ ${question}` : "⌛ Waiting for a message"}</span>
       </p>
 
+  {/* กล่อง input */}
+      <textarea
+      value={question} 
+      onChange={handleQuestion}
+      placeholder="Type your message here..."
+      className="bg-white text-black rounded px-2 py-1"
+      />
+
               <p className="text-purple-800">
-            Message from Cooper:{""}
+            Message from the Secret Room:{""}
             <span className="text-yellow-800">
                 {answer 
                 ? `🛰️ ${answer}` 
@@ -45,13 +53,7 @@ export default function App() {
             </span>
         </p>
     
-      {/* กล่อง input */}
-      <textarea
-      value={question} 
-      onChange={handleQuestion}
-      placeholder="Type your message here..."
-      className="bg-white text-black rounded px-2 py-1"
-      />
+    
 
       <Castle question={question} answer={answer} handleAnswer={handleAnswer} />
     </div>
