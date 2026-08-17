@@ -1,20 +1,59 @@
+// import Castle from "./components/01_Castle.jsx"
+// export default function App() {
+//   return (
+//     <Castle />
+      
+//   );
+// }
+
+
+import Castle from "./components/01_Castle";
+import { useState } from "react";
+
 export default function App() {
+  // declare React's state variable
+  const [question, setQuestion] = useState("");      
+    // จัดการเปลี่ยนค่าคำภาม
+  const handleQuestion = (e) => {
+    console.log(e);
+    setQuestion(e.target.value);
+  }
+
+  const [answer, setAnswer] = useState("");
+  // จัดการเปลี่ยนค่าคำตอบ
+    const handleAnswer = (e) => {
+    console.log(e);
+    setAnswer(e.target.value);
+  }
+
   return (
-    <div className="min-h-screen flex justify-center bg-blue-950">
-      <div className="p-6 gap-y-6 flex flex-col justify-start w-[80%] lg:w-[70%]">
-        <h1 className="w-full p-6 bg-amber-100 font-extrabold">
-          React App Starter
-        </h1>
-        <section className="w-full p-5 bg-amber-100 flex">
-          <ul className="list-inside list-disc flex-1">
-            <span className="font-semibold">Tech Stack:</span>
-            <li>Vite</li>
-            <li>React</li>
-            <li>JavaScript</li>
-            <li>Tailwind</li>
-          </ul>
-        </section>
-      </div>
+    // card ห้อง secret room
+    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-300">
+
+      {/* ข้อความจากกล่อง input */}
+      <p className="text-purple-800">
+        Message to Cooper:{""}
+        <span>{question ? `🛰️ ${question}` : "⌛ Waiting for a message"}</span>
+      </p>
+
+              <p className="text-purple-800">
+            Message from Cooper:{""}
+            <span className="text-yellow-800">
+                {answer 
+                ? `🛰️ ${answer}` 
+                : "⌛ Waiting for a message..."}
+            </span>
+        </p>
+    
+      {/* กล่อง input */}
+      <textarea
+      value={question} 
+      onChange={handleQuestion}
+      placeholder="Type your message here..."
+      className="bg-white text-black rounded px-2 py-1"
+      />
+
+      <Castle question={question} answer={answer} handleAnswer={handleAnswer} />
     </div>
   );
 }
