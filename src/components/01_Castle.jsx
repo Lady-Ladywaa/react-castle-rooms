@@ -10,17 +10,3 @@ export default function Castle() {
     );
 }
 
-// import Tower from "./02_Tower.jsx";
-
-// export default function Castle({ question, answer, handleAnswer }) {
-//     return (
-//         <div className="rounded-[180px] flex flex-col justify-center items-center pt-4 bg-[#0B0C10] w-[70%] scale-90">
-                 
-//             <Tower 
-//                 question={question} 
-//                 answer={answer} 
-//                 handleAnswer={handleAnswer} 
-//             />
-//         </div>
-//     );
-// }

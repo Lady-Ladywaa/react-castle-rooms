@@ -8,24 +8,14 @@
 
 
 import Castle from "./components/01_Castle";
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import { MessageContext } from "./context/messageContext/MessageContext";
 
 export default function App() {
-  // declare React's state variable
-  const [question, setQuestion] = useState("");      
-    // จัดการเปลี่ยนค่าคำภาม
-  const handleQuestion = (e) => {
-    console.log(e);
-    setQuestion(e.target.value);
-  }
 
-  const [answer, setAnswer] = useState("");
-  // จัดการเปลี่ยนค่าคำตอบ
-    const handleAnswer = (e) => {
-    console.log(e);
-    setAnswer(e.target.value);
-  }
-
+  const { question, answer, handleQuestion } = useContext(MessageContext)
+  
   return (
     // card ห้อง secret room
     <div className="flex flex-col justify-center items-center min-h-screen bg-slate-900">
@@ -55,7 +45,7 @@ export default function App() {
     
     
 
-      <Castle question={question} answer={answer} handleAnswer={handleAnswer} />
+      <Castle />
     </div>
   );
 }
