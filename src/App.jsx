@@ -5,7 +5,15 @@
       
 //   );
 // }
-
+const [question, setQuestion] = useState("");
+const [answer, setAnswer] = useState("");
+const [starterPokemon, setStarterPokemon] = useState([]);
+const [prisoner, setPrisoner] = useState(null);
+const [rescuePokemon, setRescuePokemon] = useState([]);
+const [gamePhase, setGamePhase] = useState("idle");
+const [podProgress, setPodProgress] = useState(0);
+const [showBuildModal, setShowBuildModal] = useState(false);
+const [loadError, setLoadError] = useState(false);
 
 import Castle from "./components/01_Castle";
 import { useState } from "react";
@@ -28,7 +36,7 @@ export default function App() {
 
   return (
     // card ห้อง secret room
-    <div className="flex flex-col justify-center items-center min-h-screen bg-slate-900">
+    <div className="flex flex-col justify-center items-center gap-4 min-h-screen bg-slate-900">
 
       {/* ข้อความจากกล่อง input */}
       <p className="text-purple-800">
